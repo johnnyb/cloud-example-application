@@ -1,12 +1,12 @@
 <?php
 	function getReadOnlyConnection() {
-		return new PDO("pgsql:host=localhost;" .
+		return new PDO("pgsql:host=DB.MASTER.PRIVATE.IP;" .
 			"port=5432;dbname=guestbookapp;" .
 			"user=gbuser;password=mypassword"
 		);
 	}
 	function getReadWriteConnection() {
-		return new PDO("pgsql:host=localhost;" .
+		return new PDO("pgsql:host=DB.MASTER.PRIVATE.IP;" .
 			"port=5432;dbname=guestbookapp;" .
 			"user=gbuser;password=mypassword"
 		);
