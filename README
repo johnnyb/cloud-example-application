@@ -1,0 +1,3 @@
+This repository contains the Example Program used in the book, Building Scalable Web Applications Using the Cloud: A Simple Guide to Programming and Administering Cloud-based Applications by Jonathan Bartlett.
+Each branch contains a different version of the application.
+In order to use the application, you will need to replace every IP address with the appropriate IP address in your application.
