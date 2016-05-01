@@ -32,7 +32,7 @@
 	<head>
 		<title>Guestbook App</title>
 		<link rel="stylesheet" 
-			href="guestbook.css" />
+			href="http://xyzabc.cloudfront.net/guestbook.css" />
 	</head>
 	<body>
 		<h1>Guestbook App</h1>
