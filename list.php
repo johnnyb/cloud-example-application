@@ -1,12 +1,20 @@
-<?php 
+<?php
 	include("common.php");
-	$dbh = getReadOnlyConnection();
-	$stmt = $dbh->prepare(
-		"select * from gb_entries" .
-		" order by id"
-	);
-	$stmt->execute();
-	$result = $stmt->fetchAll();
+	$cache = getCache();
+	$key = "entrylist";
+	$val = $cache->get($key);
+	if($val) {
+		$result = $val;
+	} else {
+		$dbh = getReadOnlyConnection();
+		$stmt = $dbh->prepare(
+			"select * from gb_entries" .
+			" order by id"
+		);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		$cache->set($key, $result, 10);
+	}
 	getHeader();
 ?>
 <a href="new.php">New Entry</a>

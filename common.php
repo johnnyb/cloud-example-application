@@ -1,4 +1,10 @@
 <?php
+
+	function getCache() {
+		$conn = new Memcached(); $conn->addServer("localhost", 11211); return $conn;
+	}
+
+
 	function getReadOnlyConnection() {
 		return new PDO("pgsql:host=DB.MASTER.PRIVATE.IP;" .
 			"port=5432;dbname=guestbookapp;" .
