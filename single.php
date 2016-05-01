@@ -26,5 +26,14 @@
 <label>Message</label> 
 	<?php echo h($row["message"]) ?>
 <?php
+	if($row["has_img"]) {
+		$url = "http://BUCKET.s3.amazonaws.com/" .
+			$row["id"] . ".jpg";
+?>
+		<label>Image</label>
+		<img src="<?php echo h($url) ?>" />
+<?php
+	}
+
 	getFooter();
 ?>
