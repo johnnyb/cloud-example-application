@@ -6,7 +6,16 @@
 
 
 	function getReadOnlyConnection() {
-		return new PDO("pgsql:host=DB.MASTER.PRIVATE.IP;" .
+		$serverlist = array(
+			"DB.SLAVE.PRIVATE.IP",
+			"DB.SLAVE2.PRIVATE.IP",
+			"DB.SLAVE3.PRIVATE.IP"
+		);
+		$idx = array_rand($serverlist);
+
+		$host = $serverlist[$idx];
+
+		return new PDO("pgsql:host=" . $host . ";" .
 			"port=5432;dbname=guestbookapp;" .
 			"user=gbuser;password=mypassword"
 		);
