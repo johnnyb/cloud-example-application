@@ -1,8 +1,8 @@
 <?php
 
 	function getCache() {
-		$conn = new Memcached(); 
-		$conn->addServer("localhost", 11211); 
+		$conn = new Memcached();
+		$conn->addServer("localhost", 11211);
 		return $conn;
 	}
 
