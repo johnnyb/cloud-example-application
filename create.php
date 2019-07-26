@@ -38,17 +38,11 @@
 		$last_id = $dbh->lastInsertId(
 			"gb_entries_id_seq"
 		);
-		$s3_base = "s3://BUCKET/";
+		$s3_creds = getAWSCredentials();
+		$s3_base = "s3://" . getS3BucketName() . "/";
 		$s3_file = $s3_base . $last_id . ".jpg";
-		$s3_ak = "ACCESSKEY";
-		$s3_sk = "SECRETKEY";
-
-		$cmd = "s3cmd --acl-public" .
-			" --access_key=" . $s3_ak .
-			" --secret_key=" . $s3_sk .
-			" put " . $tmpname . " " . 
-			$s3_file;
-
+		$s3_creds = getAWSCredentials();
+		$cmd = "$s3_creds aws s3 cp $tmpname $s3_file";
 		exec($cmd);
 	}
 	

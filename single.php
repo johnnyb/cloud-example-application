@@ -27,8 +27,18 @@
 	<?php echo h($row["message"]) ?>
 <?php
 	if($row["has_img"]) {
-		$url = "http://BUCKET.s3.amazonaws.com/" .
-			$row["id"] . ".jpg";
+		$s3_url = "s3://" . getS3BucketName() .
+		          "/" . $row["id"] . ".jpg";
+		$s3_region = getS3Region();
+		$s3_creds = getAWSCredentials();
+		$seconds = 300;
+
+		$cmd = "$s3_creds aws s3 presign $s3_url" .
+		       " --region $s3_region" .
+		       " --expires_in $seconds";
+		exec($cmd, $cmd_output);
+		$url = $cmd_output[0];
+		
 ?>
 		<label>Image</label>
 		<img src="<?php echo h($url) ?>" />
