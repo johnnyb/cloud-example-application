@@ -11,7 +11,7 @@
 	}
 
 	function getS3Region() {
-		return "ca-central-1";
+		return "REGION";
 	}
 
 	function getAWSCredentials() {
