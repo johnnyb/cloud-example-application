@@ -35,7 +35,7 @@
 
 		$cmd = "$s3_creds aws s3 presign $s3_url" .
 		       " --region $s3_region" .
-		       " --expires_in $seconds";
+		       " --expires-in $seconds";
 		exec($cmd, $cmd_output);
 		$url = $cmd_output[0];
 		
