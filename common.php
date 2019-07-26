@@ -15,8 +15,8 @@
 	}
 
 	function getAWSCredentials() {
-		$s3ak = "MYACCESSKEY";
-		$s3sk = "MYSECRETKEY";
+		$s3ak = "MYACCESSKEYID";
+		$s3sk = "MYSECRETACCESSKEY";
 		$s3ak_env = "AWS_ACCESS_KEY_ID=$s3ak";
 		$s3sk_env = "AWS_SECRET_ACCESS_KEY=$s3sk";
 		$creds = "$s3ak_env $s3sk_env";
