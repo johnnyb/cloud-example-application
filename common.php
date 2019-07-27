@@ -1,14 +1,20 @@
 <?php
 	function getReadOnlyConnection() {
-		return new PDO("pgsql:host=localhost;" .
-			"port=5432;dbname=guestbookapp;" .
-			"user=gbuser;password=mypassword"
+		return new PDO(
+			"pgsql:host=" .  getenv("RDS_HOSTNAME") . 
+			";port=" . getenv("RDS_PORT") .
+			";dbname=" . getenv("RDS_DB_NAME") .
+			";user=" . getenv("RDS_USERNAME") .
+			";password=" . getenv("RDS_PASSWORD")
 		);
 	}
 	function getReadWriteConnection() {
-		return new PDO("pgsql:host=localhost;" .
-			"port=5432;dbname=guestbookapp;" .
-			"user=gbuser;password=mypassword"
+		return new PDO(
+			"pgsql:host=" .  getenv("RDS_HOSTNAME") . 
+			";port=" . getenv("RDS_PORT") .
+			";dbname=" . getenv("RDS_DB_NAME") .
+			";user=" . getenv("RDS_USERNAME") .
+			";password=" . getenv("RDS_PASSWORD")
 		);
 	}
 	function getHeader() {
